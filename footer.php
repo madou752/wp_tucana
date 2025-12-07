@@ -1,30 +1,35 @@
-<?php
-/**
- * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package tucana
- */
-
+<?php 
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'tucana' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'tucana' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'tucana' ), 'tucana', '<a href="http://underscores.me/">Mehdi Hammadou</a>' );
-				?>
-		</div><!-- .site-info -->
+		<div class="footer-container">
+			<div class="footer-brand">
+				<h2 class="footer-title">Tucana</h2>
+				<p class="footer-tagline">Explore the world with us.</p>
+			</div>
+
+			<div class="footer-links">
+				<h3 class="footer-links-title">Liens utile</h3>
+				<ul class="footer-links-list">
+					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
+					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">About Us</a></li>
+					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Services</a></li>
+					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Contact</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-socials">
+				<ul class="footer-socials-list">
+					<li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i>   Facebook</a></li>
+					<li><a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i>   Twitter</a></li>
+					<li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i>   Instagram</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-bottom">
+				<p>@<?php echo date('Y');?> Tucana -Tout drois réservés</p>
+			</div>
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

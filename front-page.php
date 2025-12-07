@@ -4,7 +4,7 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-		<p>Toucana votre agence de voyage</p>
+		<p>Tucana votre agence de voyage</p>
 
 	</main>
 
