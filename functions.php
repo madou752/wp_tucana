@@ -149,6 +149,79 @@ function tucana_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'tucana_scripts' );
 
+function enqueue_single_trip_styles() {
+    if (is_singular('trip')) {
+        wp_enqueue_style(
+            'single-trip-style',
+            get_template_directory_uri() . '/css/single-trip.css',
+            array(), // dépendances éventuelles
+            null // version (tu peux mettre '1.0' si tu veux gérer le cache)
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_single_trip_styles');
+
+function enqueue_contact_page_styles() {
+    if ( is_page('contact') ) {
+        
+        wp_enqueue_style(
+            'about-style', // Un nom unique pour ce style
+            get_template_directory_uri() . '/css/contact.css', // Le chemin vers ton fichier
+            array(), 
+            '1.0'
+        );
+        
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_contact_page_styles');
+
+function enqueue_about_page_styles() {
+    if ( is_page('about') ) {
+        
+        wp_enqueue_style(
+            'about-style', // Un nom unique pour ce style
+            get_template_directory_uri() . '/css/about.css', // Le chemin vers ton fichier
+            array(), 
+            '1.0'
+        );
+        
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_about_page_styles');
+
+
+function enqueue_activite_page_styles() {
+    if ( is_singular('activite') ) {
+        
+        wp_enqueue_style(
+            'single-activite-style', // Un nom unique pour ce style
+            get_template_directory_uri() . '/css/single-activite.css', // Le chemin vers ton fichier
+            array(), 
+            '1.0'
+        );
+        
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_activite_page_styles');
+
+/* --- CRÉATION DU CPT : ACTIVITÉS (Pour Grand Palais, Ayutthaya...) --- */
+function create_activite_post_type() {
+    register_post_type('activite',
+        array(
+            'labels' => array(
+                'name' => __('Activités'),
+                'singular_name' => __('Activité')
+            ),
+            'public' => true,
+            'has_archive' => false,
+            'menu_icon' => 'dashicons-tickets-alt',
+            'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
+            'rewrite' => array('slug' => 'activite'),
+            'show_in_rest' => true,
+        )
+    );
+}
+add_action('init', 'create_activite_post_type');
 /**
  * Implement the Custom Header feature.
  */
@@ -176,3 +249,72 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/* --- FONCTION FIL D'ARIANE (BREADCRUMB) --- */
+function tucana_breadcrumb() {
+    
+    // On ne l'affiche pas sur la page d'accueil
+    if ( is_front_page() ) {
+        return;
+    }
+
+    echo '<nav class="breadcrumb">';
+    
+    // Lien vers l'accueil
+    echo '<a href="' . home_url() . '">Accueil</a>';
+    echo ' &gt; '; // Le séparateur ">"
+
+    // Si c'est une PAGE
+    if ( is_page() ) {
+        global $post;
+        
+        // S'il y a des pages parentes (ex: Pays coup de cœur > Thaïlande)
+        if ( $post->post_parent ) {
+            $parent_id  = $post->post_parent;
+            $breadcrumbs = array();
+            
+            while ( $parent_id ) {
+                $page = get_post( $parent_id );
+                $breadcrumbs[] = '<a href="' . get_permalink( $page->ID ) . '">' . get_the_title( $page->ID ) . '</a>';
+                $parent_id  = $page->post_parent;
+            }
+            
+            // On inverse l'ordre pour avoir (Grand-Parent > Parent)
+            $breadcrumbs = array_reverse( $breadcrumbs );
+            
+            foreach ( $breadcrumbs as $crumb ) {
+                echo $crumb . ' &gt; ';
+            }
+        }
+        
+        // La page courante
+        echo '<span>' . get_the_title() . '</span>';
+    }
+    
+    // Si c'est un ARTICLE (Single)
+    elseif ( is_single() ) {
+        // On affiche la catégorie
+        $cat = get_the_category(); 
+        if ( $cat ) {
+            echo '<a href="' . get_category_link( $cat[0]->term_id ) . '">' . $cat[0]->name . '</a>';
+            echo ' &gt; ';
+        }
+        echo '<span>' . get_the_title() . '</span>';
+    }
+    
+    // Si c'est une CATÉGORIE
+    elseif ( is_category() ) {
+        echo '<span>' . single_cat_title( '', false ) . '</span>';
+    }
+    
+    // Si c'est une RECHERCHE
+    elseif ( is_search() ) {
+        echo '<span>Résultats pour "' . get_search_query() . '"</span>';
+    }
+    
+    // Page 404
+    elseif ( is_404() ) {
+        echo '<span>Page introuvable</span>';
+    }
+
+    echo '</nav>';
+}

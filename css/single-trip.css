@@ -1,0 +1,271 @@
+/* --- CONFIGURATION GLOBALE --- */
+#trip-page {
+    padding: 24px 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #000;
+}
+
+/* --- TITRES DE SECTION (Ton style original optimisé) --- */
+.section-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    margin: 60px 0 30px 0;
+}
+
+.section-title {
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-transform: uppercase;
+    margin-left: 60px;
+    white-space: nowrap;
+}
+
+.section-title-line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #000;
+    margin-right: 60px;
+}
+
+/* --- SECTION 1: HERO --- */
+.hero-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    margin: 0 60px 80px 60px;
+}
+
+.main-title {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Assure-toi d'utiliser une police grasse */
+    font-size: 130px; /* Taille augmentée pour l'effet massif */
+    font-weight: 700; /* Extra-bold / Black */
+    line-height: 0.8; /* Réduit pour coller les lignes si le titre est long */
+    letter-spacing: -5px; /* Rapproche les lettres pour l'aspect compact de la maquette */
+    text-transform: uppercase;
+    margin: 0;
+    color: #000;
+    display: block;
+}
+
+/* Ajustement pour le texte d'intro juste en dessous */
+.hero-intro {
+    font-size: 22px;
+    line-height: 1.4;
+    margin-top: 10px;
+    max-width: 600px;
+    font-weight: 400;
+}
+.hero-image img {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+/* --- SECTION 2: A PROPOS (MOSAÏQUE) --- */
+.about-mosaic {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr; 
+    gap: 25px;
+    margin: 0 60px;
+    align-items: start;
+}
+
+.about-text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.img-v {
+    width: 100%;
+    height: 550px; 
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.img-h {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.arrow-down {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto 0 auto;
+    width: 100%;
+    max-width: 300px;
+    height: 50px;
+    border: 2px solid #8a4fff;
+    border-radius: 50px;
+    color: #8a4fff;
+    font-size: 20px;
+}
+
+/* --- SECTION 3: LES 4 INCONTOURNABLES --- */
+.must-see-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 40px 60px;
+}
+
+.must-see-card {
+    width: 299px;
+    height: 382px;
+    border-radius: 25px;
+    background: #fff;
+    overflow: hidden; 
+    position: relative;
+    cursor: pointer;
+    
+    /* Bordure transparente par défaut */
+    border: 1px solid transparent; 
+    transition: border-color 0.3s ease;
+}
+
+/* L'IMAGE */
+.card-image-top {
+    width: 100%;
+    height: 100%; 
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-image-top::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%);
+    transition: opacity 0.4s;
+}
+
+/* LE CHIFFRE */
+.card-image-top .count {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 40px;
+    font-weight: 800;
+    color: #fff;
+    z-index: 10;
+}
+
+/* LE BLOC BLANC (Tiroir) */
+.card-hover-content {
+    position: absolute;
+    top: 158px; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+    z-index: 5;
+    transform: translateY(100%); 
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* TITRE ET ICONE */
+.card-visible-part {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff; 
+    position: absolute;
+    /* On laisse le titre un peu haut pour qu'il soit bien sur l'image */
+    top: -50px; 
+    left: 20px;
+    z-index: 10;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-visible-part h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.card-visible-part i {
+    font-size: 20px;
+}
+
+/* DESCRIPTION (C'est ici qu'on change la position du texte) */
+.card-hidden-part {
+    opacity: 0;
+    /* MODIFICATION : On augmente la marge pour descendre le texte plus bas */
+    margin-top: 60px; 
+    transition: opacity 0.3s ease 0.1s;
+}
+
+.card-hidden-part p {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* --- HOVER --- */
+
+.must-see-card:hover {
+    border: 1px solid #000000; /* La bordure noire */
+}
+
+.must-see-card:hover .card-image-top {
+    height: 158px;
+}
+
+.must-see-card:hover .card-image-top::after {
+    opacity: 0;
+}
+
+.must-see-card:hover .card-hover-content {
+    transform: translateY(0);
+}
+
+.must-see-card:hover .card-visible-part {
+    color: #1a1446; 
+    top: 20px; 
+}
+
+.must-see-card:hover .card-hidden-part {
+    opacity: 1;
+}
+
+/* --- SECTION 4: À DÉCOUVRIR AUSSI (Ton style original) --- */
+.trip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 0 60px 60px 60px;
+}
+
+.trip-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.trip-city {
+    font-weight: 700;
+    font-size: 20px;
+    margin: 12px 0 4px 0;
+}
+
+.trip-area {
+    font-size: 16px;
+    opacity: 0.6;
+}

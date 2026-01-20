@@ -1,10 +1,6 @@
 <?php
 /**
- * The header for our theme
- *
- * Displays all of the <head> section and everything up until <div id="content">
- *
- * @package tucana
+ * Header spécifique pour la Page d'Accueil
  */
 ?>
 <!doctype html>
@@ -15,34 +11,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
     <div id="page" class="site">
-        <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'tucana'); ?></a>
-
-        <header id="masthead" class="site-header">
-
+        
+        <header id="masthead" class="site-header home-header">
             <div class="header-top">
                 <div class="header-left">
                     <button class="menu-toggle" aria-label="Menu">
                         <i class="fa-solid fa-bars"></i>
                     </button>
                     <div class="header-logo">
-                        <?php the_custom_logo(); ?>
+                         <?php 
+                        if ( function_exists( 'the_custom_logo' ) ) {
+                            the_custom_logo();
+                        }
+                        ?>
                     </div>
                 </div>
-
-                <form class="header-search" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
-                    <div class="search-inner">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="search" name="s" placeholder="Les endroits de vos rêves..." />
-                        <button type="submit">Recherche</button>
-                    </div>
-                </form>
 
                 <div class="header-icons">
                     <a href="#" class="icon-btn"><i class="fa-regular fa-heart"></i></a>
@@ -51,13 +40,4 @@
                     <a href="#" class="login-btn">Se connecter</a>
                 </div>
             </div>
-
-            <div class="header-bottom">
-                <?php 
-                if (function_exists('tucana_breadcrumb')) {
-                    tucana_breadcrumb();
-                } 
-                ?>
-            </div>
-
         </header>

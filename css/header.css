@@ -1,0 +1,137 @@
+.site-header {
+    background: #ffffff !important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 26px;
+    gap: 20px;
+    background: #ffffff !important;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #333;
+}
+
+.custom-logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+}
+
+.header-search {
+    max-width: 650px;
+    width: 100%;
+}
+
+.search-inner {
+    display: flex;
+    align-items: center;
+    background: #E9E9E980;
+    border-radius: 999px;
+    padding: 0 14px;
+    height: 48px;
+    border: 1px solid #00000040;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.search-inner i {
+    font-size: 16px;
+    background: #120028;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    margin-right: 10px;
+}
+
+.search-inner input {
+    flex: 1;
+    border: none !important;
+    outline: none !important;
+    background: transparent;
+    font-size: 15px;
+    color: #00000040;
+    height: 100%;
+    padding: 0;
+}
+
+.search-inner input::placeholder {
+    color: #00000040;
+}
+
+.search-inner button {
+    border: none;
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    background: #FF9C06;
+    margin-left: 10px;
+    height: 36px;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.icon-btn {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-btn i {
+    font-size: 22px;
+    background: linear-gradient(180deg, #FFCC00 0%, #C31300 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.login-btn {
+    background: #000;
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.header-bottom {
+    padding: 14px 26px;
+    background: #fafafa !important;
+    border-top: 1px solid #eee;
+}
+
+.breadcrumb a {
+    color: #000 !important;
+    text-decoration: none;
+    margin-right: 6px;
+}
+
+.breadcrumb span {
+    color: #000;
+    font-weight: 600;
+}

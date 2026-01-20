@@ -1,37 +1,55 @@
 <?php 
+// footer.php
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="footer-container">
-			<div class="footer-brand">
-				<h2 class="footer-title">Tucana</h2>
-				<p class="footer-tagline">Explore the world with us.</p>
-			</div>
+    <footer id="colophon" class="site-footer">
+    <div class="footer-container">
 
-			<div class="footer-links">
-				<h3 class="footer-links-title">Liens utile</h3>
-				<ul class="footer-links-list">
-					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">About Us</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Services</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Contact</a></li>
-				</ul>
-			</div>
+        <div class="footer-column">
+            <h3 class="footer-heading">Entreprise</h3>
+            <ul class="footer-list">
+                <li><a href="<?php echo home_url('/about'); ?>">À propos</a></li>
+                <li><a href="#">Offre d'emploi</a></li>
+                <li><a href="#">Mobile</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Mentions légales</a></li>
+            </ul>
+        </div>
 
-			<div class="footer-socials">
-				<ul class="footer-socials-list">
-					<li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i>   Facebook</a></li>
-					<li><a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i>   Twitter</a></li>
-					<li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i>   Instagram</a></li>
-				</ul>
-			</div>
+        <div class="footer-column">
+            <h3 class="footer-heading">Contact</h3>
+            <ul class="footer-list">
+                <li><a href="<?php echo home_url('/contact'); ?>">Aide & Contact</a></li>
+                <li><a href="#">Presse</a></li>
+                <li><a href="#">Professionnels</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Publicité</a></li>
+            </ul>
+        </div>
 
-			<div class="footer-bottom">
-				<p>@<?php echo date('Y');?> Tucana -Tout drois réservés</p>
-			</div>
-		</div>
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+        <div class="footer-column">
+            <h3 class="footer-heading">Plus</h3>
+            <ul class="footer-list">
+                <li><a href="#">Écrire un avis</a></li>
+                <li><a href="#">Ajouter un lieu</a></li>
+                <li><a href="#">S'inscrire</a></li>
+                <li><a href="#">Assistance</a></li>
+                <li><a href="#">Notifications</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <ul class="footer-bottom-links">
+            <li><a href="#">Paramètres de cookies</a></li>
+            <li><a href="#">Confidentialité utilisateur</a></li>
+            <li><a href="#">Conditions générales</a></li>
+            <li><a href="<?php echo home_url('/contact'); ?>">Contactez-nous</a></li>
+        </ul>
+        <p class="footer-copyright">@<?php echo date('Y');?> Tucana — Tous droits réservés</p>
+    </div>
+</footer>
 
 <?php wp_footer(); ?>
 
