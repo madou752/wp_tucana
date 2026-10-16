@@ -91,7 +91,7 @@ Les images de l'accueil et de la page À propos pointent en dur vers `http://tou
 
 ## Auteur
 
-**Mehdi Hammadou** (Madou) : [Portfolio](https://portfoliohammadoumehdi.vercel.app/) · [GitHub](https://github.com/madou752)
+**Mehdi Hammadou** : [Portfolio](https://portfoliohammadoumehdi.vercel.app/) · [GitHub](https://github.com/madou752)
 
 ## Crédits
 
