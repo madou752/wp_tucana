@@ -11,7 +11,6 @@
   <img src="https://img.shields.io/badge/Font_Awesome-04BBFF?style=for-the-badge&logo=fontawesome&logoColor=white" alt="Font Awesome" />
 </p>
 
-<p align="center"><img src="docs/preview.png" alt="Tucana, thème WordPress" width="900" /></p>
 
 ## À propos
 
